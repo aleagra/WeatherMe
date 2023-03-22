@@ -1,11 +1,18 @@
 import React, { useState } from 'react';
 import { NavLink } from 'react-router-dom';
 import MapPin from '../../utilities/icons/MapPin';
+import useFetch from '../../hooks/useFetch';
 
 // icons
 
 function Navbar() {
     const [city, setCity] = useState(null);
+
+    const data = useFetch(
+        `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=9175b446bb90dac9af29b18ba0c06899`
+    );
+
+    console.log(data);
 
     return (
         <header className="w-full h-[6rem] bg-transparent">
@@ -42,6 +49,8 @@ function Navbar() {
                             className="w-full pl-8  text-white py-[.5rem]  outline-none bg-[#8671CF]  rounded-2xl placeholder:text-white"
                             type="text"
                             placeholder="Search your location"
+                            onChange={(event) => setCity(event.target.value)}
+                            value={city}
                         />
                     </div>
                 </div>
