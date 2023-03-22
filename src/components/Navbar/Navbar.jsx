@@ -6,7 +6,7 @@ import MapPin from "../../utilities/icons/MapPin";
 
 function Navbar() {
   return (
-    <header className="w-full h-[6rem] bg-violet-900 border-b border-solid">
+    <header className="w-full h-[6rem] bg-transparent">
       <nav className="h-full w-full px-[8rem] flex justify-between text-black items-center">
         <div className="flex gap-x-[4rem]">
           Logo
