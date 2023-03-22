@@ -1,4 +1,5 @@
 import React from 'react';
+import { Weather } from '../components/';
 
 function Home() {
     return (
@@ -20,7 +21,9 @@ function Home() {
                     <button className="btn bg-slate-200">More features</button>
                 </div>
             </div>
-            <div className="absolute right-0 w-[52%] h-full bg-primary -skew-x-[10deg] translate-x-[5rem] -translate-y-[6rem] -z-10"></div>
+            <div className="absolute right-0 w-[52%] h-full bg-primary -skew-x-[10deg] translate-x-[5rem] -translate-y-[6rem] -z-10">
+                <Weather />
+            </div>
         </main>
     );
 }
