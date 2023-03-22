@@ -8,4 +8,17 @@
     * {
         @apply font-['Roboto'];
     }
+    html,
+    body {
+        @apply h-full w-full overflow-hidden;
+    }
+    #root {
+        @apply h-full;
+    }
+}
+
+@layer components {
+    .btn {
+        @apply w-fit px-[1.5rem] py-[1rem] border rounded-3xl font-medium;
+    }
 }
