@@ -35,12 +35,11 @@ function Home() {
         <div className='w-1/3 text-center flex flex-col justify-center text-white'>
     {data && (
       <>
-        <p className='  text-8xl'> {parseInt(data.main.temp)}°C</p>
+        <p className='  text-8xl'>{data.main.temp} F°</p>
         <p className='text-8xl'>{data.weather[0].description}</p>
         
         <div className='flex  justify-center'>
         <p>Humidity: {data.main.humidity}%</p>
-        <p>Feels like: {parseInt(data.main.feels_like)}°C</p>
         <p>Wind: {data.wind.speed} Km/h</p>
         </div>
       </>

@@ -15,7 +15,7 @@ function Navbar() {
     if (event.key == "Enter") {
       setLoading(true);
       fetch(
-        `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=9175b446bb90dac9af29b18ba0c06899`
+        `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=9175b446bb90dac9af29b18ba0c06899&units=metric&rain`
       )
         .then((response) => response.json())
         .then((data) => {
