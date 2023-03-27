@@ -1,8 +1,13 @@
 import React from 'react';
 import { Weather } from '../components';
-
+import { WeatherContext } from '../components/context/WeatherContext';
+import { useContext } from 'react';
 function Home() {
+    
+    const { data } = useContext(WeatherContext);
+
     return (
+
         <main className="w-full h-full flex relative">
             <div className="w-[50%] px-[8rem] pt-[2rem] flex flex-col gap-y-[6rem]">
                 <div className="flex flex-col gap-y-4">
@@ -24,7 +29,25 @@ function Home() {
             <div className="absolute right-0 w-[52%] h-full bg-primary -skew-x-[10deg] translate-x-[5rem] -translate-y-[6rem] -z-10">
                 <Weather />
             </div>
+        
+        
+        {/* tendria que ir en otro componente */}
+        <div className='w-1/3 text-center flex flex-col justify-center text-white'>
+    {data && (
+      <>
+        <p className='  text-8xl'>{data.main.temp} F°</p>
+        <p className='text-8xl'>{data.weather[0].description}</p>
+        
+        <div className='flex  justify-center'>
+        <p>Humidity: {data.main.humidity}%</p>
+        <p>Wind: {data.wind.speed} Km/h</p>
+        </div>
+      </>
+    )}
+  </div>
+
         </main>
+      
     );
 }
 

@@ -1,23 +1,19 @@
-import React, { useState,useEffect } from "react";
+import React, { useState, useEffect } from "react";
 import { NavLink } from "react-router-dom";
 import MapPin from "../../utilities/icons/MapPin";
 import useFetch from "../../hooks/useFetch";
+import { useContext } from "react";
+import { WeatherContext } from "../context/WeatherContext";
 
 // icons
 
 function Navbar() {
+  const { data, setData, setLoading } = useContext(WeatherContext);
   const [city, setCity] = useState("");
-
-  const [data, setData] = useState(null);
-  const [loading, setLoading] = useState(true);
-  const [error, setError] = useState(null);
-
-  useEffect(() => {
-    setLoading(true);
-  }, []);
 
   const getWeather = (event) => {
     if (event.key == "Enter") {
+      setLoading(true);
       fetch(
         `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=9175b446bb90dac9af29b18ba0c06899`
       )
@@ -25,6 +21,7 @@ function Navbar() {
         .then((data) => {
           setData(data);
           console.log(data); // Imprimir data dentro de la función then
+          setCity("");
         })
         .catch((error) => setError(error))
         .finally(() => setLoading(false));
@@ -40,25 +37,17 @@ function Navbar() {
         </div>
         <div className="flex gap-x-[6rem]">
           <div className="flex gap-x-[2rem]">
-            <select
-              className=" py-4 px-10 bg-white rounded-2xl outline-none font-medium appearance-none"
-              name="months"
-              id="months"
+            <p
+              className="h-[56px] w-[170px] py-4 text-center  bg-white rounded-2xl outline-none font-medium appearance-none"
+           
             >
-              <option value="">April</option>
-              <option value="">September</option>
-              <option value="">April</option>
-              <option value="">September</option>
-              <option value="">April</option>
-              <option value="">September</option>
-            </select>
-            <select
-              className="px-[1rem] bg-white rounded-2xl outline-none font-medium appearance-none"
-              name="days"
-              id="days"
-            >
-              <option value="">20</option>
-            </select>
+              {data && data.name}
+            </p>
+
+
+            <p className=" h-[56px] w-[40px] py-4 text-center  bg-white rounded-2xl outline-none font-medium appearance-none">
+              {data && data.sys.country}
+            </p>
           </div>
           <div className=" text-white  relative flex">
             <MapPin />
