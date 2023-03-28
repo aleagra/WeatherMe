@@ -4,7 +4,7 @@ import { DropletIcon, SunIcon, WindIcon } from '../../utilities';
 function Weather({ data }) {
     return (
         <>
-            {data && (
+            {data &&  (
                 <div className="text-white flex flex-col text-center gap-[2rem] mt-12 skew-x-[10deg]">
                     <div className="flex flex-col gap-[20rem]">
                         <span className="text-4xl">

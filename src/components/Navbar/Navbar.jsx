@@ -7,8 +7,8 @@ import { WeatherContext } from '../context/WeatherContext';
 // icons
 
 function Navbar() {
-    const { data, setData, setLoading } = useContext(WeatherContext);
-    const [city, setCity] = useState('Mar del Plata');
+    const { data, setData, setLoading,city,setCity } = useContext(WeatherContext);
+  
 
     const getWeather = (event) => {
         if (event.key == 'Enter') {
@@ -19,8 +19,8 @@ function Navbar() {
                 .then((response) => response.json())
                 .then((data) => {
                     setData(data);
-                    console.log(data); // Imprimir data dentro de la función then
-                    setCity('');
+                    
+                
                 })
                 .catch((error) => setError(error))
                 .finally(() => setLoading(false));
@@ -31,7 +31,7 @@ function Navbar() {
         <header className="w-full h-[6rem] bg-transparent">
             <nav className="h-full w-full px-[8rem] flex justify-between text-black items-center">
                 <div className="flex gap-x-[4rem]">
-                    Logo
+                Logo
                     <NavLink to="/">About us</NavLink>
                 </div>
                 <div className="flex gap-x-[6rem]">
