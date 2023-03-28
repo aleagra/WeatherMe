@@ -5,8 +5,7 @@ import { useContext } from 'react';
 import { WorldIcon } from '../utilities';
 import { Link } from 'react-router-dom';
 function Home() {
-    const { data,city } = useContext(WeatherContext);
-
+    const { data, city } = useContext(WeatherContext);
 
     return (
         <main className="w-full h-full flex relative">
@@ -23,10 +22,10 @@ function Home() {
                     </div>
                 </div>
                 <div className="flex gap-x-6">
-                   <Link to="/Week">
-                    <button className="btn flex gap-2 items-center bg-black text-white/95">
-                        <WorldIcon /> See the week weather
-                    </button>
+                    <Link to="/week">
+                        <button className="btn flex gap-2 items-center bg-black text-white/95">
+                            <WorldIcon /> See the week weather
+                        </button>
                     </Link>
                     <button className="btn bg-slate-200">More features</button>
                 </div>
