@@ -4,12 +4,19 @@ import { DropletIcon, SunIcon, WindIcon } from '../../utilities';
 function Weather({ data }) {
     return (
         <>
-            {data &&  (
-                <div className="text-white flex flex-col text-center gap-[2rem] mt-12 skew-x-[10deg]">
-                    <div className="flex flex-col gap-[20rem]">
-                        <span className="text-4xl">
-                            <span className="text-9xl">{parseInt(data.main.temp)}</span> °C
+            {data && (
+                <div className="text-white flex flex-col text-center gap-[2rem] skew-x-[10deg]">
+                    <div className="flex flex-col gap-[12rem] justify-center items-center">
+                        <span className="relative text-4xl ml-auto z-[10] opacity-30 top-[2rem]">
+                            <span className="text-8xl">{parseInt(data.main.temp)}</span>°C
                         </span>
+                        <div className="relative top-[-18rem] w-full z-[9]">
+                            <img
+                                src="./26.png"
+                                alt=""
+                                className="absolute w-full object-contain h-[30rem]"
+                            />
+                        </div>
                         <span className="text-7xl capitalize font-bold">
                             {data.weather[0].description}
                         </span>
