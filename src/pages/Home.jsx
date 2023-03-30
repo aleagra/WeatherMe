@@ -27,7 +27,7 @@ function Home() {
                             <WorldIcon /> See the week weather
                         </button>
                     </Link>
-                    <button className="btn bg-slate-200">More features</button>
+                    <button className="btn bg-slate-200">About Us</button>
                 </div>
             </div>
             <div className="absolute right-0 w-[52%] h-full bg-gradient-to-br from-primary to-indigo-600 -skew-x-[10deg] translate-x-[5rem] -translate-y-[6rem] -z-10 flex justify-center items-center">
