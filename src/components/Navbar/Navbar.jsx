@@ -49,7 +49,7 @@ function Navbar() {
                         <span
                             className={` px-4 whitespace-nowrap py-4 text-center ${
                                 data ? 'bg-white' : 'bg-transparent'
-                            }  rounded-3xl outline-none font-medium appearance-none`}
+                            }  rounded-2xl outline-none font-medium appearance-none`}
                         >
                             {data && (
                                 <>
@@ -62,7 +62,7 @@ function Navbar() {
                     <div className="text-white relative flex">
                         <MapPin />
                         <input
-                            className=" pl-[2.5rem] pr-4 text-white whitespace-nowrap py-4  outline-none bg-[#8671CF]  rounded-3xl placeholder:text-white"
+                            className=" w-[13rem] pl-[2.5rem] pr-2 text-white whitespace-nowrap py-4  outline-none bg-blue-600  rounded-2xl placeholder:text-white"
                             type="search"
                             placeholder="Search your location"
                             onChange={(event) => setCity(event.target.value)}

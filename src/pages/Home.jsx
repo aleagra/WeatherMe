@@ -30,11 +30,11 @@ function Home() {
                     <button className="btn bg-slate-200">About Us</button>
                 </div>
             </div>
-            <div className="absolute right-0 w-[52%] h-full bg-gradient-to-br from-primary to-indigo-600 -skew-x-[10deg] translate-x-[5rem] -translate-y-[6rem] -z-10 flex justify-center items-center">
+            <div className="absolute right-0 w-[52%] h-full bg-gradient-to-br bg-blue-500 -skew-x-[10deg] translate-x-[5rem] -translate-y-[6rem] -z-10 flex justify-center items-center">
                 <Weather data={data} />
             </div>
         </main>
     );
 }
-
+// from-primary to-indigo-600
 export default Home;
