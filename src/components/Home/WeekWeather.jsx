@@ -5,7 +5,8 @@ import Cards from '../Cards';
 
 function WeekWeather() {
     const { city, setLoading, loading } = useContext(WeatherContext);
-    const [week, setWeek] = useState([]);
+    const [forecast, setForecast] = useState([]);
+    const [dates, setDates] = useState([]);
     const [dataLoaded, setDataLoaded] = useState(false);
 
     const fetchData = () => {
@@ -14,23 +15,40 @@ function WeekWeather() {
         )
             .then((response) => response.json())
             .then((data) => {
-                setWeek(data.list);
+                const forecastsByDay = data.list
+                    .slice(0, 40) // solo tomamos los primeros 40 resultados (5 días a 8 pronósticos por día)
+                    .reduce((forecasts, forecast) => {
+                        const date = forecast.dt_txt.split(' ')[0]; // obtener la fecha sin la hora
+
+                        if (!forecasts[date]) {
+                            forecasts[date] = []; // si es la primera vez que se encuentra la fecha, se crea un nuevo array vacío
+                        }
+                        forecasts[date].push(forecast); // se agrega el pronóstico al array correspondiente al día
+
+                        return forecasts;
+                    }, {});
+
+                const allDates = Object.keys(forecastsByDay); // obtenemos un array con todas las fechas
+
+                setDates(allDates); // actualizamos el array con todas las fechas
+                setForecast([forecastsByDay]); // actualizamos los pronósticos por día
             })
-            .catch((error) => setError(error))
-            .finally(() => setLoading(false));
+            .catch((error) => console.error(error));
     };
 
     useEffect(() => {
         fetchData();
     }, [city]);
 
-    console.log(week);
-
     if (loading) {
-        return <h1>Loading...</h1>;
+        return <div className="loader bg-primary" />;
     }
 
-    return <>{week && week.map((item) => <Cards data={item} />)}</>;
+    return (
+        <section className="w-full h-full px-[15rem]">
+            {forecast && forecast.map((item) => <Cards data={item} dates={dates} />)}
+        </section>
+    );
 }
 
 export default WeekWeather;

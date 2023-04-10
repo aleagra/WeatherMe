@@ -15,7 +15,11 @@ function Weather({ data }) {
                             {data.weather[0].description}
                         </span>
                     </div>
-                    <ImageLoader />
+                    <ImageLoader
+                        data={data}
+                        divClassName="relative bottom-[35rem]"
+                        imgClassName="h-[30rem] max-h-[30rem]"
+                    />
                     <hr className="border-white/20" />
                     <div className="flex text-left gap-[2rem] justify-center">
                         <div className="flex gap-3 justify-start">

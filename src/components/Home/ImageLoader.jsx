@@ -1,8 +1,7 @@
 import React, { useContext, useState } from 'react';
 import { WeatherContext } from '../context/WeatherContext';
 
-const ImageLoader = () => {
-    const { data } = useContext(WeatherContext);
+const ImageLoader = ({ data, divClassName, imgClassName }) => {
     let weather = data.weather[0].description;
     const [loading, setLoading] = useState(true);
     let src;
@@ -69,13 +68,13 @@ const ImageLoader = () => {
     };
 
     return (
-        <div className="relative bottom-[35rem] w-full z-[9]">
+        <div className={`relative ${divClassName} w-full z-[9]`}>
             {loading && <div className="loader relative top-[10rem]" />}
             <img
                 key={src}
                 src={src}
                 alt={weather}
-                className={`pulse absolute w-full object-contain h-[30rem] max-h-[30rem] ${
+                className={`pulse absolute w-full object-contain ${imgClassName} ${
                     loading ? 'hidden' : 'block'
                 }`}
                 onLoad={handleImageLoad}
