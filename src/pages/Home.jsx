@@ -9,7 +9,7 @@ function Home() {
 
     return (
         <main className="w-full h-full flex relative">
-            <div className="w-[50%] px-[8rem] pt-[2rem] flex flex-col gap-y-[6rem]">
+            <div className="w-[50%] px-[8rem] pt-[5rem] flex flex-col gap-y-[6rem]">
                 <div className="flex flex-col gap-y-4">
                     <h1 className="font-bold text-[6.5em]">We Know The Future!</h1>
                     <div className="text-[1.2em]">
@@ -30,7 +30,7 @@ function Home() {
                     <button className="btn bg-slate-200">About Us</button>
                 </div>
             </div>
-            <div className="absolute right-0 w-[52%] h-full bg-gradient-to-br bg-blue-500 -skew-x-[10deg] translate-x-[5rem] -translate-y-[6rem] -z-10 flex justify-center items-center">
+            <div className="absolute right-0 w-[52%] h-full bg-gradient-to-r from-blue-500 to-blue-700  -skew-x-[10deg] translate-x-[5rem] -translate-y-[6rem] -z-10 flex justify-center items-center">
                 <Weather data={data} />
             </div>
         </main>

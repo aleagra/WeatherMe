@@ -1,24 +1,60 @@
 import ImageLoader from './Home/ImageLoader';
+import { Splide, SplideSlide } from '@splidejs/react-splide';
+import '@splidejs/react-splide/css';
+
+// or other themes
+import '@splidejs/react-splide/css/skyblue';
+import '@splidejs/react-splide/css/sea-green';
+
+// or only core styles
+import '@splidejs/react-splide/css/core';
 
 const Cards = ({ data, dates }) => {
+
+
+
+   
+
     return (
         <>
-            <div className="flex flex-wrap gap-4">
+      
+ 
+
+  <Splide  options={ {
+    perPage: 4,
+    rewind : false  ,
+    perMove: 1,
+    gap:"2rem",
+padding:"1.5rem",
+// breakpoints:{
+//     1440:{
+//         perPage:3,
+//         gap:"3rem",
+//     },
+//     640:{
+//         perPage:1
+//     }
+// }
+
+  } }
+>
+          
                 {dates.map((date, index) => {
                     const items = data[date].map((item) => item); // Guarda los items en un nuevo array
                     const itemsZero = items[0];
                     console.log(items);
                     return (
+                        <SplideSlide>
                         <div
                             key={index}
-                            className="w-[17rem] h-[25rem] mr-4 py-4 rounded-2xl bg-blue-500 text-white"
+                            className=" px-[1rem] h-[30rem]  py-4 rounded-2xl border border-white shadow-lg  text-white hover:bg-white/10 cursor-pointer"
                         >
                             <div className="flex gap-1 flex-col text-center h-full w-full">
                                 <span>{date}</span>
                                 <ImageLoader
                                     data={itemsZero}
                                     divClassName="mt-6"
-                                    imgClassName="w-full h-[10rem]"
+                                    imgClassName="w-full h-[16rem]"
                                 />
                                 <div className="flex flex-col mt-auto mx-auto">
                                     <span className="mb-6 text-5xl font-bold">
@@ -50,9 +86,11 @@ const Cards = ({ data, dates }) => {
                                 </div>
                             </div>
                         </div>
+                        </SplideSlide>
                     );
                 })}
-            </div>
+     
+            </Splide>   
         </>
     );
 };
