@@ -11,7 +11,7 @@ const Cards = ({ data, dates }) => {
                     return (
                         <div
                             key={index}
-                            className="w-[10rem] h-[25rem] mr-4 py-4 rounded-2xl bg-blue-500 text-white"
+                            className="w-[17rem] h-[25rem] mr-4 py-4 rounded-2xl bg-blue-500 text-white"
                         >
                             <div className="flex gap-1 flex-col text-center h-full w-full">
                                 <span>{date}</span>

@@ -45,7 +45,7 @@ function WeekWeather() {
     }
 
     return (
-        <section className="w-full h-full px-[15rem]">
+        <section className="w-full h-full px-[3rem] mt-[5rem]">
             {forecast && forecast.map((item) => <Cards data={item} dates={dates} />)}
         </section>
     );
