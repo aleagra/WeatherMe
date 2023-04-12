@@ -1,5 +1,5 @@
 import React from 'react';
-import { Weather } from '../components';
+import { Navbar, Weather } from '../components';
 import { WeatherContext } from '../components/context/WeatherContext';
 import { useContext } from 'react';
 import { WorldIcon } from '../utilities';
@@ -8,6 +8,8 @@ function Home() {
     const { data, city } = useContext(WeatherContext);
 
     return (
+    <>
+    <Navbar color="bg-transparent" />
         <main className="w-full h-full flex relative">
             <div className="w-[50%] px-[8rem] pt-[5rem] flex flex-col gap-y-[6rem]">
                 <div className="flex flex-col gap-y-4">
@@ -34,6 +36,7 @@ function Home() {
                 <Weather data={data} />
             </div>
         </main>
+        </>
     );
 }
 // from-primary to-indigo-600

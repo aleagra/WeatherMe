@@ -8,7 +8,7 @@ function App() {
     return (
         <WeatherContextProvider>
             <BrowserRouter>
-                <Navbar />
+             
                 <Routes>
                     <Route path="/" element={<Home />}></Route>
                     <Route path="/week" element={<WeekWeather />}></Route>

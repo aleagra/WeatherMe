@@ -91,3 +91,6 @@
         }
     }
 }
+.splide__arrow svg{
+    fill: none!important;
+}

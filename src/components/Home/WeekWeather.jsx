@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import { useContext } from "react";
 import { WeatherContext } from "../context/WeatherContext";
 import Cards from "../Cards";
+import Navbar from "../Navbar/Navbar";
 
 function WeekWeather() {
   const { city, setLoading, loading } = useContext(WeatherContext);
@@ -45,12 +46,15 @@ function WeekWeather() {
   }
 
   return (
-    <section className="w-full h-full  flex justify-center  px-[3rem] bg-gradient-to-r from-blue-500 to-blue-700">
-      <div className="h-fit ">
-        {forecast &&
-          forecast.map((item) => <Cards data={item} dates={dates} />)}
-      </div>
-    </section>
+    <>
+      <Navbar color=" " />
+      <section className="w-full h-full  flex justify-center  px-[3rem] ">
+        <div className="h-fit ">
+          {forecast &&
+            forecast.map((item) => <Cards data={item} dates={dates} />)}
+        </div>
+      </section>
+    </>
   );
 }
 

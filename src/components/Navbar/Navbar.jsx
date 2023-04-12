@@ -7,7 +7,7 @@ import toast, { Toaster } from "react-hot-toast";
 import { Link } from "react-router-dom";
 // icons
 
-function Navbar() {
+function Navbar({ color }) {
   const { data, setData, setLoading, city, setCity } =
     useContext(WeatherContext);
   const [error, setError] = useState("");
@@ -37,7 +37,7 @@ function Navbar() {
   };
 
   return (
-    <header className="w-full h-[6rem] bg-transparent">
+    <header className={`w-full h-[6rem] ${color}`}>
       <nav className="h-full w-full px-[8rem] flex justify-between text-black items-center">
         <div className="flex gap-x-[4rem] items-center">
           <Link to="/">
@@ -46,11 +46,11 @@ function Navbar() {
           </Link>
           {/* <NavLink to="/" className="text-lg">About us</NavLink> */}
         </div>
-        <div className="flex gap-x-[6rem]">
+        <div className="flex gap-x-[2rem]">
           <div className="flex gap-x-[2rem]">
             <span
               className={` px-4 whitespace-nowrap py-4 text-center ${
-                data ? "bg-white" : "bg-transparent"
+                data ? "bg-black/70 text-white" : "bg-transparent"
               }  rounded-2xl outline-none font-medium appearance-none`}
             >
               {data && (
