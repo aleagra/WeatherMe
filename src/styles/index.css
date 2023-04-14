@@ -16,6 +16,9 @@
         @apply h-full;
     }
 }
+body{
+    @apply bg-slate-200;
+}
 
 @layer components {
     .btn {
@@ -32,6 +35,7 @@
         -webkit-animation-iteration-count: infinite;
         animation-iteration-count: infinite;
     }
+   
     @-webkit-keyframes pulse {
         0% {
             -webkit-transform: scale3d(1, 1, 1);

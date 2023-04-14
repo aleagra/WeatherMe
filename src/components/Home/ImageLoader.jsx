@@ -69,14 +69,14 @@ const ImageLoader = ({ data, divClassName, imgClassName }) => {
 
   return (
     <div className={`relative ${divClassName} w-full z-[9]`}>
-      {loading && <div className=" relative top-[10rem]" />}
+      {loading && <div className="loader relative top-[10rem]" />}
       <img
         key={src}
         src={src}
         alt={weather}
-        className={`  w-full object-contain ${imgClassName} ${
+        className={`pulse  absolute w-full object-contain ${imgClassName} ${
           // absolute
-          loading ? "hidden" : "block"
+          loading ? " hidden" : "block"
         }`}
         onLoad={handleImageLoad}
       />

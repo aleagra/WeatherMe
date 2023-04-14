@@ -47,8 +47,8 @@ function WeekWeather() {
 
   return (
     <>
-      <Navbar color=" " />
-      <section className="w-full h-full flex flex-col items-center px-[3rem]">
+      <Navbar color="bg-slate-200" />
+      <section className="w-full  bg-slate-200 flex flex-col items-center px-[3rem]">
         <div className="h-fit py-2">
           {forecast &&
             forecast.map((item) => <Cards data={item} dates={dates} />)}

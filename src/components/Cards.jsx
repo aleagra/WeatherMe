@@ -87,7 +87,7 @@ const Cards = ({ data, dates }) => {
                         <div className="flex flex-col gap-y-1">
                           <span className="text-sm opacity-80">Humidity</span>
                           <span className="text-lg font-bold">
-                            {itemsZero.main.humidity}{" "}
+                            {itemsZero.main.humidity} {console.log(itemsZero)}
                             <span className="text-sm font-light">%</span>
                           </span>
                         </div>
@@ -150,17 +150,17 @@ const Cards = ({ data, dates }) => {
       </Splide>
 
       {active && (
-        <div className="px-[4rem]">
-          <div className="w-full h-fit bg-blue-500 rounded-lg text-white items-center">
+        <div className="px-[4rem] text-lg ">
+          <div className="w-full h-fit bg-blue-500 rounded-lg text-white items-center  ">
             {details.map((item) => (
-              <div className="w-full flex gap-10 p-[2rem] items-center">
+              <div className="w-full flex gap-10 p-[2rem] items-center border-b-2 border-white">
                 <div className="flex w-full justify-center">
                   <span className="text-xl">
                     {item.dt_txt.split(" ")[1].slice(0, 5)} HS
                   </span>
                 </div>
                 <div className="flex w-full items-center">
-                  <ImageLoader data={item} imgClassName="h-[5rem]" />
+                  <ImageLoader data={item} imgClassName="h-[5rem] relative  " />
                   <p className="uppercase w-full">
                     {item.weather[0].description}
                   </p>
@@ -175,25 +175,24 @@ const Cards = ({ data, dates }) => {
                 {/* <div className="flex w-full justify-center ">
                   <p className="uppercase">{parseInt(item.main.feels_like)}</p>
                 </div> */}
-                <div className="flex w-full gap-3 justify-center">
-                  <SunIcon />
+                <div className="flex w-[50%] gap-3 justify-center">
                   <div className="flex  flex-col">
                     <span>{parseInt(item.main.temp)} °C</span>
                   </div>
                 </div>
-                <div className="flex gap-3 justify-center">
+                <div className="flex gap-3 w-[50%] justify-center">
                   <DropletIcon />
                   <div className="flex flex-col  ">
                     <span>{item.main.humidity}%</span>
                   </div>
                 </div>
-                <div className="flex w-full gap-3 justify-center">
+                <div className="flex w-[50%] gap-3 justify-center">
                   <WindIcon />
                   <div className="flex flex-col ">
-                    <span className="">{item.wind.speed} Km/h</span>
+                    <span className="">{item.wind.speed} km/h</span>
                   </div>
                 </div>
-                <div className="flex w-full gap-3 justify-center">
+                <div className="flex w-[50%] gap-3 justify-center">
                   <SunIcon />
                   <div className="flex  flex-col">
                     <span>{parseInt(item.main.feels_like)} °C</span>
