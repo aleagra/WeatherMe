@@ -1,6 +1,6 @@
 import React from 'react';
 import { DropletIcon, SunIcon, WindIcon } from '../../utilities';
-import ImageLoader from './ImageLoader';
+import ImageLoader from '../ImageLoader';
 
 function Weather({ data }) {
     return (
@@ -18,7 +18,7 @@ function Weather({ data }) {
                     <ImageLoader
                         data={data}
                         divClassName="relative bottom-[35rem]"
-                        imgClassName="h-[30rem] max-h-[30rem]"
+                        imgClassName="pulse h-[30rem] max-h-[30rem]"
                     />
                     <hr className="border-white/20" />
                     <div className="flex text-left gap-[2rem] justify-center">
