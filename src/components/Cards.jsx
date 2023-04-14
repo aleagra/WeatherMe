@@ -162,8 +162,11 @@ const Cards = ({ data, dates }) => {
             {active && (
                 <div className="px-[4rem] text-lg ">
                     <div className="w-full h-fit bg-blue-500 rounded-lg text-white items-center  ">
-                        {details.map((item) => (
-                            <div className="w-full flex gap-10 p-[1rem] items-center border-b-2 border-white">
+                        {details.map((item, index) => (
+                            <div
+                                key={index}
+                                className="w-full flex gap-10 p-[1rem] items-center border-b-2 border-white"
+                            >
                                 <div className="flex w-full justify-center">
                                     <span className="text-xl">
                                         {item.dt_txt.split(' ')[1].slice(0, 5)} HS
