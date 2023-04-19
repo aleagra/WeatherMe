@@ -6,7 +6,7 @@ function WeatherContextProvider({ children }) {
     const [data, setData] = useState(null);
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState(null);
-    const [city, setCity] = useState(null);
+    const [city, setCity] = useState('Mar del Plata');
 
     return (
         <WeatherContext.Provider

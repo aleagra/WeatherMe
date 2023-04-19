@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { NavLink } from 'react-router-dom';
 import MapPin from '../../utilities/icons/MapPin';
 import { useContext } from 'react';
@@ -12,28 +12,31 @@ function Navbar({ color }) {
     const [error, setError] = useState('');
     const notify = () => toast('Here is your toast.');
 
-    const getWeather = (event) => {
-        if (event.key === 'Enter') {
-            setLoading(true);
-            fetch(
-                `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=9175b446bb90dac9af29b18ba0c06899&units=metric&rain`
-            )
-                .then((response) => {
-                    if (!response.ok) {
-                        throw new Error('City not found');
-                    }
-                    return response.json();
-                })
-                .then((data) => {
-                    setData(data);
-                })
-                .catch((error) => {
-                    setError(error);
-                    toast.error('Enter an available location.');
-                })
-                .finally(() => setLoading(false));
-        }
+    const getWeather = () => {
+        setLoading(true);
+        fetch(
+            `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=9175b446bb90dac9af29b18ba0c06899&units=metric&rain`
+        )
+            .then((response) => {
+                if (!response.ok) {
+                    throw new Error('City not found');
+                }
+                return response.json();
+            })
+            .then((data) => {
+                setData(data);
+                localStorage.setItem('city', JSON.stringify(city));
+            })
+            .catch((error) => {
+                setError(error);
+                toast.error('Enter an available location.');
+            })
+            .finally(() => setLoading(false));
     };
+
+    useEffect(() => {
+        getWeather();
+    }, [city]);
 
     return (
         <header className={`w-full h-[6rem] ${color}`}>
@@ -66,11 +69,9 @@ function Navbar({ color }) {
                             className="w-[13rem] pl-[2.5rem] pr-2 text-white whitespace-nowrap py-4 outline-none bg-black/70 rounded-2xl placeholder:text-white"
                             type="search"
                             placeholder="Search your location"
-                            onChange={(event) => setCity(event.target.value)}
-                            value={city}
                             onKeyDown={(event) => {
                                 if (event.key === 'Enter') {
-                                    getWeather(event);
+                                    setCity(event.target.value);
                                 }
                             }}
                         />
