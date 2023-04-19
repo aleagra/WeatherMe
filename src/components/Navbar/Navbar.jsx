@@ -39,19 +39,18 @@ function Navbar({ color }) {
     }, [city]);
 
     return (
-        <header className={`w-full h-[6rem] ${color}`}>
-            <nav className="h-full w-full px-[8rem] flex justify-between text-black items-center">
+        <header className={`w-full h-fit lg:h-[6rem] ${color}`}>
+            <nav className="h-full w-full lg:px-[8rem] py-4 gap-y-6 flex flex-col lg:flex-row lg:justify-between text-black items-center">
                 <div className="flex gap-x-[4rem] items-center">
                     <Link to="/">
                         {' '}
-                        <img src="./logo.png" alt="" className="w-[150px]" />
+                        <img src="./logo.png" alt="" className="min-w-[150px] w-[200px]" />
                     </Link>
-                    {/* <NavLink to="/" className="text-lg">About us</NavLink> */}
                 </div>
-                <div className="flex gap-x-[2rem]">
-                    <div className="flex gap-x-[2rem]">
+                <div className="flex gap-2 lg:gap-x-[2rem] flex-col items-center 420:flex-row">
+                    <div className="flex">
                         <span
-                            className={` px-4 whitespace-nowrap py-4 text-center ${
+                            className={`py-2 px-4 whitespace-nowrap lg:py-4 text-center ${
                                 data ? 'bg-black/70 text-white' : 'bg-transparent'
                             }  rounded-2xl outline-none font-medium appearance-none`}
                         >
@@ -66,7 +65,7 @@ function Navbar({ color }) {
                     <div className="text-white relative flex">
                         <MapPin />
                         <input
-                            className="w-[13rem] pl-[2.5rem] pr-2 text-white whitespace-nowrap py-4 outline-none bg-black/70 rounded-2xl placeholder:text-white"
+                            className="w-[13rem] pl-[2.5rem] pr-2 text-white whitespace-nowrap py-3 outline-none bg-black/70 rounded-2xl placeholder:text-white"
                             type="search"
                             placeholder="Search your location"
                             onKeyDown={(event) => {
