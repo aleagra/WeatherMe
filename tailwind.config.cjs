@@ -7,6 +7,14 @@ module.exports = {
                 white: '#ffffff',
                 primary: '#5A36D0',
             },
+            screens:{
+                1024:"1024px",
+                900:"900px",
+                800:"800px",
+                1200:"1200px",
+                1300:"1300px",
+                1400:"1400px"
+            }
         },
     },
     plugins: [],
