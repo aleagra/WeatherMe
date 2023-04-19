@@ -73,7 +73,7 @@ const ImageLoader = ({ data, divClassName, imgClassName }) => {
                 key={src}
                 src={src}
                 alt={weather}
-                className={`absolute w-full object-contain ${imgClassName} ${
+                className={`w-full object-contain ${imgClassName} ${
                     // absolute
                     loading ? ' hidden' : 'block'
                 }`}
