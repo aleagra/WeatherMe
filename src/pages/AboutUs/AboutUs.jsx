@@ -1,10 +1,11 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { LinkedinIcon, GithubIcon, WebsiteIcon, PeopleIcon, BackIcon } from '../../utilities';
+import { Buttons } from '../../components';
 
 const AboutUs = () => {
     return (
-        <div className="overflow-hidden max-sm:overflow-auto lg:h-screen">
+        <div className="overflow-hidden max-sm:overflow-auto">
             <header className="relative w-full">
                 <div className="mt-[4rem] flex items-center justify-center gap-x-[4rem]">
                     <Link to="/">
@@ -16,7 +17,7 @@ const AboutUs = () => {
 
             <main className="mt-[3rem] flex h-full w-full flex-col items-center justify-center">
                 <h1 className="mb-[2rem] text-2xl font-bold">Our Team</h1>
-                <div className="flex gap-8 max-sm:mb-[4rem] max-sm:flex-col">
+                <div className="flex gap-8 max-sm:mb-[1rem] max-sm:flex-col">
                     <div className="flex h-[26rem] w-[18rem] min-w-[15rem] flex-col gap-4 rounded-lg bg-gray-100 transition-all hover:-translate-y-2 hover:shadow-lg">
                         <img
                             src="./ale.jpg"
@@ -88,13 +89,14 @@ const AboutUs = () => {
                     </div>
                 </div>
 
-                <div className="mb-8 flex items-center gap-4 px-2  md:justify-center xl:my-12 xl:justify-start">
-                    <Link to="/">
-                        <button className="btn flex items-center gap-2 bg-blue-500 text-white/95">
-                            <BackIcon /> Back to Home
-                        </button>
-                    </Link>
-                </div>
+                <Buttons
+                    classContainer="mb-8 flex items-center gap-4 px-2  md:justify-center xl:my-12 xl:justify-start"
+                    classBtn1="bg-blue-500 text-white/95"
+                    iconBtn1={<BackIcon />}
+                    textBtn1="Back to home"
+                    pathBtn1="/"
+                    classBtn2="hidden"
+                />
             </main>
         </div>
     );
