@@ -1,55 +1,53 @@
-import React, { useContext } from "react";
-import { Link } from "react-router-dom";
-import { WeatherContext } from "../../context/WeatherContext";
-import { Navbar, Weather } from "../../components";
-import { BackIcon, PeopleIcon, WorldIcon } from "../../utilities";
+import React, { useContext } from 'react';
+import { Link } from 'react-router-dom';
+import { WeatherContext } from '../../context/WeatherContext';
+import { Buttons, Navbar, Weather } from '../../components';
+import { BackIcon, PeopleIcon, WorldIcon } from '../../utilities';
 
 function Home() {
-  const { data } = useContext(WeatherContext);
+    const { data } = useContext(WeatherContext);
 
-  return (
-    <>
-      <section className="w-full h-full xl:overflow-hidden">
-        <Navbar color="bg-gradient-to-r from-blue-500 to-blue-700 xl:from-transparent xl:to-transparent xl:absolute xl:top-0" />
-        <main className="w-full h-full xl:h-screen md:h-fit flex relative flex-col-reverse xl:flex-row justify-end xl:justify-between xl:items-center">
-          <div className="w-full mt-10 xl:w-[50%] xl:px-[4rem] flex flex-col xl:gap-y-[10rem] px-8 1440:px-[8rem]">
-            <div className="flex flex-col gap-y-4 1440:gap-y-8">
-              <h1 className="font-bold text-5xl xl:text-7xl md:text-6xl max-xl:text-center">
-                We Know The Future!
-              </h1>
-              <div className="max-xl:text-center text-sm xl:text-lg md:text-base 1600:pr-10">
-                <p>We are the weather forecast system.</p>
-                <p>
-                  We are a weather forecasting system.Our experts check the
-                  information with the most modern satellite equipment and
-                  powerfull servers. And they whit give you the most accurate
-                  results.
-                </p>
-              </div>
-            </div>
-            <div className="flex gap-4 mt-12 flex-col items-center px-2 mb-8 md:mb-8 xl:mb-0 md:flex-row md:justify-center xl:justify-start xl:mt-0 xl:px-0">
-              <Link to="/week">
-                <button className="btn flex gap-2 items-center bg-black text-white/95">
-                  <WorldIcon /> See the week weather
-                </button>
-              </Link>
-              <Link to="/aboutus">
-                <button className="btn flex gap-2 items-center bg-white ">
-                  <PeopleIcon /> About us
-                </button>
-              </Link>
-            </div>
-          </div>
-          {/* <div className="lg:right-0 w-full h-full py-4 lg:w-[52%] lg:h-full bg-gradient-to-r from-blue-500 to-blue-700  lg:-skew-x-[10deg] lg:translate-x-[5rem] lg:-translate-y-[6rem] -z-10 flex justify-center items-center">
-                        <Weather data={data} className="absolute" />
-                    </div> */}
-          <div className="xl:relative max-xl:bg-gradient-to-r from-blue-500 to-blue-700 -z-10 py-[2rem] flex xl:w-[60%] 1440:w-[50%] xl:h-full xl:efecto-diagonal ">
-            <Weather data={data} />
-          </div>
-        </main>
-      </section>
-    </>
-  );
+    return (
+        <>
+            <section className="h-full w-full xl:overflow-hidden">
+                <Navbar color="bg-gradient-to-r from-blue-500 to-blue-700 xl:from-transparent xl:to-transparent xl:absolute xl:top-0" />
+                <main className="relative flex h-full w-full flex-col-reverse justify-end md:h-fit xl:h-screen xl:flex-row xl:items-center xl:justify-between">
+                    <div className="mt-10 flex w-full flex-col px-8 xl:w-[50%] xl:gap-y-[10rem] xl:px-[4rem] 1440:px-[8rem]">
+                        <div className="flex flex-col gap-y-4 1440:gap-y-8">
+                            <h1 className="text-5xl font-bold max-xl:text-center md:text-6xl xl:text-7xl">
+                                We Know The Future!
+                            </h1>
+                            <div className="text-sm max-xl:text-center md:text-base xl:text-lg 1600:pr-10">
+                                <p>We are the weather forecast system.</p>
+                                <p>
+                                    We are a weather forecasting system.Our experts check the
+                                    information with the most modern satellite equipment and
+                                    powerfull servers. And they whit give you the most accurate
+                                    results.
+                                </p>
+                            </div>
+                        </div>
+
+                        <Buttons
+                            classContainer="mt-12 flex-col md:flex-row  xl:mt-0 xl:justify-start"
+                            classBtn1="bg-black text-white/95"
+                            iconBtn1={<WorldIcon />}
+                            textBtn1="See the week weather"
+                            pathBtn1="/week"
+                            classBtn2="bg-white"
+                            iconBtn2={<PeopleIcon />}
+                            textBtn2="About us"
+                            pathBtn2="/aboutus"
+                        />
+                    </div>
+
+                    <div className="xl:efecto-diagonal -z-10 flex from-blue-500 to-blue-700 py-[2rem] max-xl:bg-gradient-to-r xl:relative xl:h-full xl:w-[60%] 1440:w-[50%]">
+                        <Weather data={data} />
+                    </div>
+                </main>
+            </section>
+        </>
+    );
 }
 
 export default Home;
