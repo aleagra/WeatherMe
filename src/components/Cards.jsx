@@ -175,9 +175,9 @@ const Cards = ({ data, dates }) => {
               {details.map((item, index) => (
                 <div
                   key={index}
-                  className="w-full   max-sm:w-[33%] sm:w-[60%] max-md:w-2/3 md:w-2/3 max-900:w-[60%] lg:w-full xl:w-full m-auto  flex gap-4 p-4  items-center "
+                  className="w-full   max-sm:w-[33%] sm:w-[60%] max-md:w-2/3 md:w-2/3 max-900:w-[60%] lg:w-full xl:w-[92%] m-auto  flex gap-4 p-4  items-center "
                 >
-                  <div className="flex w-full justify-center max-xl:w-1/2">
+                  <div className="flex w-full justify-center max-2xl:w-1/2">
                     <span className="text-xl  max-md:text-base">
                       {item.dt_txt.split(" ")[1].slice(0, 5)} HS
                     </span>
