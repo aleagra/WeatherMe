@@ -70,14 +70,14 @@ const Cards = ({ data, dates }) => {
           },
         }}
       >
-        <SplideTrack className="  m-auto max-800:w-[57%] max-900:w-[58%] max-1024:w-[68%]  max-1200:w-[75%] max-xl:w-[85%] max-2xl:w-[90%]">
+        <SplideTrack className="md:w-[65%] max-lg:w-[90%] 900:w-[85%] lg:w-[88%] sm:w-full m-auto 2xl:w-full max-xl:py-8">
           {dates.map((date, index) => {
             const items = data[date].map((item) => item); // Guarda los items en un nuevo array
             const itemsZero = items[0];
             return (
               <SplideSlide key={index}>
                 <div
-                  className={`px-[1rem] h-[27rem] py-4 rounded-2xl bg-gradient-to-r from-blue-500 to-blue-700  shadow-md  text-white transition-colors cursor-pointer ${
+                  className={`px-[1rem] h-[27rem] py-4 xl:rounded-2xl bg-gradient-to-r from-blue-500 to-blue-700  shadow-md  text-white transition-colors cursor-pointer ${
                     selectedCardIndex === index
                       ? "bg-gradient-to-r from-blue-700 to-blue-900"
                       : "" // Cambia el color de fondo si la card está seleccionada
@@ -175,16 +175,16 @@ const Cards = ({ data, dates }) => {
               {details.map((item, index) => (
                 <div
                   key={index}
-                  className="w-full   max-sm:w-[35%] sm:w-[60%] max-md:w-2/3 md:w-2/3 max-900:w-[60%] lg:w-full xl:w-full m-auto  flex gap-4 p-4  items-center "
+                  className="w-full   max-sm:w-[33%] sm:w-[60%] max-md:w-2/3 md:w-2/3 max-900:w-[60%] lg:w-full xl:w-full m-auto  flex gap-4 p-4  items-center "
                 >
-                  <div className="flex w-full justify-center sm:w-1/3 ">
-                    <span className="text-xl max-md:text-base">
+                  <div className="flex w-full justify-center max-xl:w-1/2">
+                    <span className="text-xl  max-md:text-base">
                       {item.dt_txt.split(" ")[1].slice(0, 5)} HS
                     </span>
                   </div>
                   <div className="flex w-full items-center sm:w-2/3  ">
                     <ImageLoader data={item} imgClassName="h-12 relative" />
-                    <p className="uppercase w-full text-base max-md:text-sm ">
+                    <p className="uppercase w-full text-center text-base max-md:text-sm ">
                       {item.weather[0].description}
                     </p>
                   </div>
