@@ -46,7 +46,7 @@ function Navbar({ color }) {
                     <Link to="/">
                         {' '}
                         <img
-                            src={anchoPantalla <= 1280 ? './whiteLogo.png' : '/logo.png'}
+                            src={anchoPantalla < 1280 ? './whiteLogo.png' : '/logo.png'}
                             alt="logo"
                             className="w-[200px] min-w-[150px]"
                         />
