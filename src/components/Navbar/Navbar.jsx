@@ -40,17 +40,17 @@ function Navbar({ color }) {
 
     return (
         <header className={`w-full h-fit lg:h-[6rem] ${color}`}>
-            <nav className="h-full w-full lg:px-[8rem] py-4 gap-y-6 flex flex-col lg:flex-row lg:justify-between text-black items-center">
-                <div className="flex gap-x-[4rem] items-center">
+            <nav className="h-full w-full md:px-[2rem] xl:px-[4rem] 1440:px-[8rem] py-4 gap-y-6 flex flex-col md:flex-row md:justify-between text-black items-center">
+                <div className="flex items-center">
                     <Link to="/">
                         {' '}
                         <img src="./logo.png" alt="" className="min-w-[150px] w-[200px]" />
                     </Link>
                 </div>
-                <div className="flex gap-2 lg:gap-x-[2rem] flex-col items-center 420:flex-row">
+                <div className="flex gap-2 xl:gap-x-[2rem] 1440:-mr-8 flex-col md:flex-row items-center 420:flex-row">
                     <div className="flex">
                         <span
-                            className={`py-2 px-4 whitespace-nowrap lg:py-4 text-center ${
+                            className={`py-2 px-4 whitespace-nowrap md:py-3 text-center ${
                                 data ? 'bg-black/70 text-white' : 'bg-transparent'
                             }  rounded-2xl outline-none font-medium appearance-none`}
                         >

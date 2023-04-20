@@ -16,13 +16,19 @@
         @apply h-full;
     }
 }
-body{
+body {
     @apply bg-slate-200;
 }
 
 @layer components {
     .btn {
         @apply w-fit px-[1.5rem] py-[1rem] border rounded-3xl font-medium;
+    }
+
+    .efecto-diagonal::before {
+        @apply bg-gradient-to-r from-blue-500 to-blue-700 top-0 absolute bottom-0 left-0 -z-10 right-[-2000px];
+        content: '';
+        transform: skew(-10deg);
     }
 
     .pulse {
@@ -35,7 +41,7 @@ body{
         -webkit-animation-iteration-count: infinite;
         animation-iteration-count: infinite;
     }
-   
+
     @-webkit-keyframes pulse {
         0% {
             -webkit-transform: scale3d(1, 1, 1);
