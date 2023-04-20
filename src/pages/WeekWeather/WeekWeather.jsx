@@ -43,13 +43,13 @@ function WeekWeather() {
     return (
         <>
             <Navbar color="bg-gradient-to-r from-blue-500 to-blue-700 xl:from-transparent xl:to-transparent" />
-            <section className="flex  w-full flex-col items-center bg-slate-200 px-[3rem]">
+            <section className="flex w-full flex-col items-center bg-slate-200 px-[3rem]">
                 <div className="h-fit ">
                     {forecast && forecast.map((item) => <Cards data={item} dates={dates} />)}
                 </div>
 
                 <Buttons
-                    classContainer="mt-8 mb-8 flex  items-center gap-4 px-2 md:mb-8 md:justify-center xl:my-12 xl:justify-start"
+                    classContainer="pb-8 flex items-center gap-4 px-2 md:justify-center xl:my-12 xl:justify-start"
                     classBtn1="bg-blue-500 text-white/95"
                     iconBtn1={<BackIcon />}
                     textBtn1="Back to home"
