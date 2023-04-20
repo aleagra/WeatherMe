@@ -1,7 +1,9 @@
+export { default as BackIcon } from './icons/BackIcon';
 export { default as DropletIcon } from './icons/DropletIcon';
 export { default as GithubIcon } from './icons/GithubIcon';
 export { default as LinkedinIcon } from './icons/LinkedinIcon';
 export { default as MapPin } from './icons/MapPin';
+export { default as PeopleIcon } from './icons/PeopleIcon';
 export { default as SunIcon } from './icons/SunIcon';
 export { default as WebsiteIcon } from './icons/WebsiteIcon';
 export { default as WindIcon } from './icons/WindIcon';

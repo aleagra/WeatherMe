@@ -43,6 +43,7 @@ const Cards = ({ data, dates }) => {
   return (
     <>
       <Splide
+        className="max-xl:m-[-3rem]"
         hasTrack={false}
         options={{
           perPage: 4,
@@ -54,6 +55,7 @@ const Cards = ({ data, dates }) => {
           breakpoints: {
             764: {
               perPage: 1,
+              gap: "1rem",
             },
 
             1200: {
@@ -75,8 +77,10 @@ const Cards = ({ data, dates }) => {
             return (
               <SplideSlide key={index}>
                 <div
-                  className={`px-[1rem] h-[27rem] py-4 rounded-2xl bg-blue-500 shadow-md  text-white transition-colors cursor-pointer ${
-                    selectedCardIndex === index ? "bg-blue-700/90" : "" // Cambia el color de fondo si la card está seleccionada
+                  className={`px-[1rem] h-[27rem] py-4 rounded-2xl bg-gradient-to-r from-blue-500 to-blue-700  shadow-md  text-white transition-colors cursor-pointer ${
+                    selectedCardIndex === index
+                      ? "bg-gradient-to-r from-blue-700 to-blue-900"
+                      : "" // Cambia el color de fondo si la card está seleccionada
                   }`}
                   onClick={() => {
                     setActive(true);

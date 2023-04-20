@@ -1,6 +1,8 @@
 import React, { useEffect, useState, useContext } from "react";
 import { WeatherContext } from "../../context/WeatherContext";
 import { Cards, Navbar } from "../../components/";
+import { Link } from "react-router-dom";
+import { BackIcon, PeopleIcon } from "../../utilities";
 
 function WeekWeather() {
   const { city } = useContext(WeatherContext);
@@ -40,11 +42,23 @@ function WeekWeather() {
 
   return (
     <>
-      <Navbar color="bg-slate-200" />
+      <Navbar color="bg-gradient-to-r from-blue-500 to-blue-700 xl:from-transparent xl:to-transparent" />
       <section className="w-full  bg-slate-200 flex flex-col items-center px-[3rem]">
-        <div className="h-fit py-2">
+        <div className="h-fit ">
           {forecast &&
             forecast.map((item) => <Cards data={item} dates={dates} />)}
+        </div>
+        <div className="flex gap-4 mt-8  items-center px-2 mb-8 md:mb-8  md:justify-center xl:justify-start xl:my-12">
+          <Link to="/">
+            <button className="btn flex gap-2 items-center bg-blue-500 text-white/95 whitespace-nowrap">
+              <BackIcon /> Back to Home
+            </button>
+          </Link>
+          <Link to="/aboutus">
+            <button className="btn flex gap-2 items-center bg-white whitespace-nowrap">
+              <PeopleIcon /> About us
+            </button>
+          </Link>
         </div>
       </section>
     </>
