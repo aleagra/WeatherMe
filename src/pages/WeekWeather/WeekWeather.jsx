@@ -5,9 +5,10 @@ import { Link } from 'react-router-dom';
 import { BackIcon, PeopleIcon } from '../../utilities';
 
 function WeekWeather() {
-    const { city, loading, setLoading } = useContext(WeatherContext);
-    const [forecast, setForecast] = useState([]);
+    const { city } = useContext(WeatherContext);
+    const [forecast, setForecast] = useState(undefined);
     const [dates, setDates] = useState([]);
+    const [loading, setLoading] = useState(true);
 
     const fetchData = () => {
         fetch(
@@ -48,7 +49,9 @@ function WeekWeather() {
             <section className="flex w-full flex-col items-center bg-slate-200 px-[3rem]">
                 <div className="h-fit">
                     {forecast && forecast.map((item) => <Cards data={item} dates={dates} />)}
-                    {loading && <div className="loader mt-[4rem] mb-[2rem]" />}
+                    {loading && forecast == undefined && (
+                        <div className="loader mt-[4rem] mb-[2rem]" />
+                    )}
                 </div>
 
                 <Buttons
