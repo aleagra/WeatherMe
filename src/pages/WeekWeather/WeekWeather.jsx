@@ -5,7 +5,7 @@ import { Link } from 'react-router-dom';
 import { BackIcon, PeopleIcon } from '../../utilities';
 
 function WeekWeather() {
-    const { city } = useContext(WeatherContext);
+    const { city, loading, setLoading } = useContext(WeatherContext);
     const [forecast, setForecast] = useState([]);
     const [dates, setDates] = useState([]);
 
@@ -15,6 +15,7 @@ function WeekWeather() {
         )
             .then((response) => response.json())
             .then((data) => {
+                setLoading(true);
                 const forecastsByDay = data.list
                     .slice(0, 40) // solo tomamos los primeros 40 resultados (5 días a 8 pronósticos por día)
                     .reduce((forecasts, forecast) => {
@@ -32,6 +33,7 @@ function WeekWeather() {
 
                 setDates(allDates); // actualizamos el array con todas las fechas
                 setForecast([forecastsByDay]); // actualizamos los pronósticos por día
+                setLoading(false);
             })
             .catch((error) => console.error(error));
     };
@@ -44,8 +46,9 @@ function WeekWeather() {
         <>
             <Navbar color="bg-gradient-to-r from-blue-500 to-blue-700 xl:from-transparent xl:to-transparent" />
             <section className="flex w-full flex-col items-center bg-slate-200 px-[3rem]">
-                <div className="h-fit ">
+                <div className="h-fit">
                     {forecast && forecast.map((item) => <Cards data={item} dates={dates} />)}
+                    {loading && <div className="loader mt-[4rem] mb-[2rem]" />}
                 </div>
 
                 <Buttons
