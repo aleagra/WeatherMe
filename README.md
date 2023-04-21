@@ -1,4 +1,4 @@
-# WeatherMe 🏛️💰💱
+# WeatherMe 🌤 ☀ ☔
 
 https://weather-me.web.app/
 
