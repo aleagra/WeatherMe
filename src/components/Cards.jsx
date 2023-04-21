@@ -42,7 +42,7 @@ const Cards = ({ data, dates, active, setActive }) => {
 
   return (
     <>
-      <div className="container py-12 lg:px-12 ">
+      <div className="container py-12 max-sm:py-0 lg:px-12 ">
         <Swiper
           slidesPerView={4}
           spaceBetween={30}
@@ -86,7 +86,7 @@ const Cards = ({ data, dates, active, setActive }) => {
             return (
               <SwiperSlide key={index}>
                 <div
-                  className={`h-[27rem] cursor-pointer bg-gradient-to-r from-blue-500 to-blue-700 px-[1rem] py-4  text-white  shadow-md transition-colors xl:rounded-2xl ${
+                  className={`h-[28rem] cursor-pointer bg-gradient-to-r from-blue-500 to-blue-700 px-[1rem] py-4  text-white  shadow-md transition-colors xl:rounded-2xl ${
                     selectedCardIndex === index
                       ? "bg-gradient-to-r from-blue-700 to-blue-900"
                       : ""

@@ -47,7 +47,7 @@ function WeekWeather() {
 
   return (
     <>
-      <Navbar color="bg-gradient-to-r from-blue-500 to-blue-700 xl:from-transparent xl:to-transparent" />
+      <Navbar color="bg-gradient-to-r from-blue-500 to-blue-700 xl:from-transparent xl:to-transparent " />
       <section className="flex  w-full flex-col justify-center bg-slate-200 ">
         <div className="h-fit 640:m-auto ">
           {forecast &&
@@ -65,7 +65,7 @@ function WeekWeather() {
         </div>
 
         <Buttons
-          classContainer="pb-8 flex items-center gap-4 px-2 m-auto justify-center xl:my-12 xl:justify-start"
+          classContainer="pb-8 flex items-center   gap-4 px-2 m-auto justify-center xl:my-12 xl:justify-start"
           classBtn1="bg-blue-500 text-white/95"
           iconBtn1={<BackIcon />}
           textBtn1="Back to home"
