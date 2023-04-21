@@ -15,7 +15,7 @@ A real time weather web.
 | ✅ Fetch            | HTTP requests                                                 |
 | ✅ react-router-dom | Routing and navigating the app                                |
 | ✅ react-hot-toast  | Display toasts notifications to provide user feedback         |
-| ✅ splide.js        | Carousel library                                              |
+| ✅ swiper.js        | Carousel library                                              |
 
 ### Features
 
