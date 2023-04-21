@@ -12,11 +12,8 @@ import '@splidejs/react-splide/css/sea-green';
 import '@splidejs/react-splide/css/core';
 import { DropletIcon, SunIcon, WindIcon } from '../utilities';
 
-const Cards = ({ data, dates }) => {
-    const { loading } = useContext(WeatherContext);
-    const [active, setActive] = useState(false);
+const Cards = ({ data, dates, active, setActive }) => {
     const [details, setDetails] = useState([]);
-
     const [selectedCardIndex, setSelectedCardIndex] = useState(null);
 
     const handleCardClick = (index) => {
@@ -41,10 +38,6 @@ const Cards = ({ data, dates }) => {
         const dayOfWeek = dateObject.getDay();
         return daysOfWeek[dayOfWeek];
     };
-    if (loading && active) {
-        debugger;
-        setActive(false);
-    }
 
     return (
         <>
@@ -184,7 +177,7 @@ const Cards = ({ data, dates }) => {
                 </div>
             </Splide>
 
-            {active && !loading && (
+            {active && (
                 <div className="flex justify-center">
                     <div className="w-full text-lg sm:px-6 md:px-16">
                         <div className="h-fit w-full items-center rounded-lg bg-blue-500 text-white">

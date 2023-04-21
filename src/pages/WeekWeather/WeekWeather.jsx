@@ -9,6 +9,7 @@ function WeekWeather() {
     const [forecast, setForecast] = useState(undefined);
     const [dates, setDates] = useState([]);
     const [loading, setLoading] = useState(true);
+    const [active, setActive] = useState(false);
 
     const fetchData = () => {
         fetch(
@@ -35,6 +36,7 @@ function WeekWeather() {
                 setDates(allDates); // actualizamos el array con todas las fechas
                 setForecast([forecastsByDay]); // actualizamos los pronósticos por día
                 setLoading(false);
+                setActive(false);
             })
             .catch((error) => console.error(error));
     };
@@ -48,7 +50,15 @@ function WeekWeather() {
             <Navbar color="bg-gradient-to-r from-blue-500 to-blue-700 xl:from-transparent xl:to-transparent" />
             <section className="flex w-full flex-col items-center bg-slate-200 px-[3rem]">
                 <div className="h-fit">
-                    {forecast && forecast.map((item) => <Cards data={item} dates={dates} />)}
+                    {forecast &&
+                        forecast.map((item) => (
+                            <Cards
+                                data={item}
+                                dates={dates}
+                                setActive={setActive}
+                                active={active}
+                            />
+                        ))}
                     {loading && forecast == undefined && (
                         <div className="loader mt-[4rem] mb-[2rem]" />
                     )}
