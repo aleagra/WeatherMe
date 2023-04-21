@@ -1,16 +1,17 @@
 import { useState, useContext } from 'react';
 import ImageLoader from './ImageLoader';
 import { WeatherContext } from '../context/WeatherContext';
-import { Splide, SplideSlide, SplideTrack } from '@splidejs/react-splide';
-import '@splidejs/react-splide/css';
+import { Swiper, SwiperSlide } from 'swiper/react';
 
-// or other themes
-import '@splidejs/react-splide/css/skyblue';
-import '@splidejs/react-splide/css/sea-green';
+// Import Swiper styles
 
-// or only core styles
-import '@splidejs/react-splide/css/core';
-import { DropletIcon, SunIcon, WindIcon } from '../utilities';
+// Import Swiper styles
+import 'swiper/css';
+import 'swiper/css/pagination';
+import 'swiper/css/navigation';
+import { Pagination, Navigation } from 'swiper';
+import { DropletIcon, LeftArrowIcon, SunIcon, WindIcon } from '../utilities';
+import RightArrowIcon from '../utilities/icons/RightArrowIcon';
 
 const Cards = ({ data, dates, active, setActive }) => {
     const [details, setDetails] = useState([]);
@@ -41,46 +42,57 @@ const Cards = ({ data, dates, active, setActive }) => {
 
     return (
         <>
-            <Splide
-                className="max-xl:m-[-3rem]"
-                hasTrack={false}
-                options={{
-                    perPage: 4,
-                    rewind: false,
-                    perMove: 1,
-                    gap: '3rem',
-                    padding: '1.5rem',
-                    pagination: false,
-                    breakpoints: {
-                        764: {
-                            perPage: 1,
-                            gap: '1rem',
+            <div className="container py-12 max-sm:py-0 lg:px-12 ">
+                <Swiper
+                    slidesPerView={4}
+                    spaceBetween={30}
+                    loop={false}
+                    navigation={{
+                        prevEl: '.my-swiper-prev', // Clase CSS personalizada para la flecha previa
+                        nextEl: '.my-swiper-next', // Clase CSS personalizada para la flecha siguiente
+                    }}
+                    modules={[Navigation]}
+                    touchEventsTarget="container"
+                    className="mySwiper "
+                    breakpoints={{
+                        200: {
+                            slidesPerView: 1,
+                            spaceBetween: 0,
+                            // Ajusta este valor según tus necesidades
                         },
-
-                        1200: {
-                            perPage: 2,
-                            gap: '2rem',
-                            padding: '0rem',
+                        640: {
+                            slidesPerView: 2,
+                            spaceBetween: 30, // Ajusta este valor según tus necesidades
                         },
-                        1600: {
-                            perPage: 3,
-                            gap: '3rem',
+                        1024: {
+                            slidesPerView: 3,
+                            spaceBetween: 30, // Ajusta este valor según tus necesidades
                         },
-                    },
-                }}
-            >
-                <SplideTrack className="m-auto max-xl:py-8 max-lg:w-[90%] sm:w-full md:w-[65%] 900:w-[85%] lg:w-[88%] 2xl:w-full">
+                        1280: {
+                            slidesPerView: 4,
+                            spaceBetween: 30, // Ajusta este valor según tus necesidades
+                        },
+                        // Agrega más breakpoints y configuraciones según tus necesidades
+                    }}
+                >
                     {dates.map((date, index) => {
-                        const items = data[date].map((item) => item); // Guarda los items en un nuevo array
+                        const items = data[date]; // Obtén los datos correspondientes a la fecha actual
+
+                        // Utiliza el primer elemento de la lista para mostrar en la tarjeta
                         const itemsZero = items[0];
+
+                        // Resto del código del componente SwiperSlide
+
                         return (
-                            <SplideSlide key={index}>
+                            <SwiperSlide key={index}>
                                 <div
-                                    className={`h-[27rem] cursor-pointer bg-gradient-to-r from-blue-500 to-blue-700 px-[1rem] py-4  text-white  shadow-md transition-colors xl:rounded-2xl ${
+                                    className={`h-[28rem] cursor-pointer bg-gradient-to-r from-blue-500 to-blue-700 px-[1rem] py-4  text-white  shadow-md transition-colors xl:rounded-2xl ${
                                         selectedCardIndex === index
                                             ? 'bg-gradient-to-r from-blue-700 to-blue-900'
-                                            : '' // Cambia el color de fondo si la card está seleccionada
+                                            : ''
                                     }`}
+                                    // Asegúrate de que no haya estilos que definan una posición absoluta o un z-index alto que pueda superponerse a las flechas de navegación
+                                    style={{ position: 'relative', zIndex: 1 }}
                                     onClick={() => {
                                         setActive(true);
                                         setDetails(items);
@@ -90,11 +102,11 @@ const Cards = ({ data, dates, active, setActive }) => {
                                     <div className="flex h-full w-full flex-col gap-1 text-center">
                                         <span>{getDayOfWeek(date)}</span>
                                         <span>{date}</span>
-                                        <div className="flex flex-col items-center ">
+                                        <div className="flex flex-col items-center">
                                             <ImageLoader
                                                 data={itemsZero}
                                                 divClassName="mt-6"
-                                                imgClassName="pulse w-full h-[11rem] "
+                                                imgClassName="w-full h-[11rem] pulse"
                                             />
                                         </div>
                                         <div className="mx-auto mt-auto flex flex-col">
@@ -137,54 +149,25 @@ const Cards = ({ data, dates, active, setActive }) => {
                                         </div>
                                     </div>
                                 </div>
-                            </SplideSlide>
+                            </SwiperSlide>
                         );
                     })}
-                </SplideTrack>
-                <div className="splide__arrows">
-                    <button className="splide__arrow splide__arrow--prev">
-                        <svg
-                            xmlns="http://www.w3.org/2000/svg"
-                            fill="none"
-                            viewBox="0 0 24 24"
-                            strokeWidth={1.5}
-                            stroke="currentColor"
-                            className="h-6 w-6 stroke-blue-700"
-                        >
-                            <path
-                                strokeLinecap="round"
-                                strokeLinejoin="round"
-                                d="M8.25 4.5l7.5 7.5-7.5 7.5"
-                            />
-                        </svg>
-                    </button>
-                    <button className="splide__arrow splide__arrow--next">
-                        <svg
-                            xmlns="http://www.w3.org/2000/svg"
-                            fill="none"
-                            viewBox="0 0 24 24"
-                            strokeWidth={1.5}
-                            stroke="currentColor"
-                            className="h-6 w-6 stroke-blue-700"
-                        >
-                            <path
-                                strokeLinecap="round"
-                                strokeLinejoin="round"
-                                d="M8.25 4.5l7.5 7.5-7.5 7.5"
-                            />
-                        </svg>
-                    </button>
-                </div>
-            </Splide>
-
+                    <div className="my-swiper-prev">
+                        <LeftArrowIcon />
+                    </div>
+                    <div className="my-swiper-next">
+                        <RightArrowIcon />
+                    </div>
+                </Swiper>
+            </div>
             {active && (
-                <div className="flex justify-center">
-                    <div className="w-full text-lg sm:px-6 md:px-16">
-                        <div className="h-fit w-full items-center rounded-lg bg-blue-500 text-white">
+                <div className="flex justify-center lg:px-12">
+                    <div className="w-full  text-lg">
+                        <div className="h-fit w-full items-center bg-blue-500 text-white xl:rounded-lg">
                             {details.map((item, index) => (
                                 <div
                                     key={index}
-                                    className="m-auto flex w-full items-center gap-4 p-4 max-900:w-[60%] max-md:w-2/3 max-sm:w-[33%] sm:w-[60%] md:w-2/3 lg:w-full xl:w-[92%] "
+                                    className="m-auto flex w-full items-center gap-4 p-4  "
                                 >
                                     <div className="flex w-full justify-center max-2xl:w-1/2">
                                         <span className="text-xl max-md:text-base">

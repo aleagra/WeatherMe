@@ -6,10 +6,10 @@ function Weather({ data }) {
     return (
         <>
             {data && (
-                <div className="w-full h-fit mt-auto xl:my-auto">
-                    <div className="flex flex-col gap-[1rem] justify-center items-center px-8">
-                        <span className="opacity-30 ml-auto xl:text-3xl text-white md:pr-10">
-                            <span className="text-6xl mr-1 md:text-8xl">
+                <div className="mt-auto h-fit w-full xl:my-auto">
+                    <div className="flex flex-col items-center justify-center gap-[1rem] px-8 xl:relative">
+                        <span className="z-10 text-white opacity-30 max-xl:ml-auto md:mt-10 xl:absolute xl:bottom-[18rem] xl:right-16 2xl:right-32 2xl:bottom-[25rem] 2xl:text-3xl">
+                            <span className="mr-1 text-6xl md:text-8xl">
                                 {parseInt(data.main.temp)}
                             </span>
                             °C
@@ -17,35 +17,35 @@ function Weather({ data }) {
                         <ImageLoader
                             data={data}
                             divClassName=""
-                            imgClassName="min-h-[10rem] h-[10rem] md:h-[20rem] xl:h-[22rem] pulse"
+                            imgClassName="min-h-[10rem] h-[10rem] md:h-[20rem] xl:h-[18rem] 2xl:h-[22rem] pulse"
                         />
-                        <span className="my-4 font-bold capitalize text-white text-2xl md:text-4xl">
+                        <span className="my-4 text-2xl font-bold capitalize text-white md:text-4xl">
                             {data.weather[0].description}
                         </span>
                     </div>
 
-                    <div className="flex text-left gap-[1rem] md:gap-[2rem] justify-center text-white px-4">
-                        <div className="flex gap-3 justify-start">
+                    <div className="flex justify-center gap-[1rem] px-4 text-left text-white md:gap-[2rem]">
+                        <div className="flex justify-start gap-3">
                             <DropletIcon />
-                            <div className="flex flex-col pr-8 border-r border-white/20">
-                                <span className="opacity-[.7] text-xs md:text-base">Humidity</span>
+                            <div className="flex flex-col border-r border-white/20 pr-8">
+                                <span className="text-xs opacity-[.7] md:text-base">Humidity</span>
                                 <span className="text-sm md:text-lg">{data.main.humidity}%</span>
                             </div>
                         </div>
-                        <div className="flex gap-3 justify-start">
+                        <div className="flex justify-start gap-3">
                             <WindIcon />
-                            <div className="flex flex-col pr-8 border-r border-white/20">
-                                <span className="opacity-[.7] text-xs md:text-base"> Wind</span>
+                            <div className="flex flex-col border-r border-white/20 pr-8">
+                                <span className="text-xs opacity-[.7] md:text-base"> Wind</span>
                                 <span className="text-sm md:text-lg">{data.wind.speed} Km/h</span>
                             </div>
                         </div>
-                        <div className="flex gap-3 justify-start">
+                        <div className="flex justify-start gap-3">
                             <SunIcon />
                             <div className="flex flex-col">
-                                <span className="opacity-[.7] text-xs md:text-base">
+                                <span className="text-xs opacity-[.7] md:text-base">
                                     Feels like
                                 </span>
-                                <span className="text-sm md:text-lg whitespace-nowrap">
+                                <span className="whitespace-nowrap text-sm md:text-lg">
                                     {parseInt(data.main.feels_like)} °C
                                 </span>
                             </div>

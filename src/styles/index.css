@@ -81,7 +81,22 @@ body {
         box-sizing: border-box;
         animation: rotation 1s linear infinite;
     }
-
+    .my-swiper-prev{
+        color: white;
+        position: absolute;
+        top: 50%;
+        left: 0;
+        transform: translateY(-50%);
+        z-Index: 200;
+    }
+    .my-swiper-next{
+        color: white;
+        position: absolute;
+        top: 50%;
+        right:  0;
+        transform: translateY(-50%);
+        z-Index: 200;
+    }
     [type='search']::-webkit-search-cancel-button {
         -webkit-appearance: none;
         appearance: none;

@@ -67,8 +67,7 @@ const ImageLoader = ({ data, divClassName, imgClassName }) => {
     };
 
     return (
-        <div className={`relative ${divClassName} w-full z-[9]`}>
-            {loading && <div className="loader relative top-[10rem]" />}
+        <div className={`relative ${divClassName} z-[9] w-full`}>
             <img
                 key={src}
                 src={src}
