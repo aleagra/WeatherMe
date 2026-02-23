@@ -1,8 +1,7 @@
-import React, { useContext } from "react";
-import { Link } from "react-router-dom";
+import { useContext } from "react";
 import { WeatherContext } from "../../context/WeatherContext";
 import { Buttons, Navbar, Weather } from "../../components";
-import { BackIcon, PeopleIcon, WorldIcon } from "../../utilities";
+import { PeopleIcon, WorldIcon } from "../../utilities";
 
 function Home() {
   const { data } = useContext(WeatherContext);

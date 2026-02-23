@@ -1,7 +1,6 @@
-import React, { useEffect, useState, useContext } from 'react';
+import { useEffect, useState, useContext } from 'react';
 import { WeatherContext } from '../../context/WeatherContext';
 import { Buttons, Cards, Navbar } from '../../components/';
-import { Link } from 'react-router-dom';
 import { BackIcon, PeopleIcon } from '../../utilities';
 
 function WeekWeather() {
@@ -19,22 +18,21 @@ function WeekWeather() {
             .then((data) => {
                 setLoading(true);
                 const forecastsByDay = data.list
-                    .slice(0, 40) // solo tomamos los primeros 40 resultados (5 días a 8 pronósticos por día)
+                    .slice(0, 40) 
                     .reduce((forecasts, forecast) => {
-                        const date = forecast.dt_txt.split(' ')[0]; // obtener la fecha sin la hora
-
+                        const date = forecast.dt_txt.split(' ')[0];
                         if (!forecasts[date]) {
-                            forecasts[date] = []; // si es la primera vez que se encuentra la fecha, se crea un nuevo array vacío
+                            forecasts[date] = []; 
                         }
-                        forecasts[date].push(forecast); // se agrega el pronóstico al array correspondiente al día
+                        forecasts[date].push(forecast);
 
                         return forecasts;
                     }, {});
 
-                const allDates = Object.keys(forecastsByDay); // obtenemos un array con todas las fechas
+                const allDates = Object.keys(forecastsByDay);
 
-                setDates(allDates); // actualizamos el array con todas las fechas
-                setForecast([forecastsByDay]); // actualizamos los pronósticos por día
+                setDates(allDates); 
+                setForecast([forecastsByDay]);
                 setLoading(false);
                 setActive(false);
             })
